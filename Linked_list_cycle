@@ -1,0 +1,84 @@
+class Solution {
+public:
+    bool hasCycle(ListNode *head) {
+
+        ListNode *p=head;
+        ListNode *q=head;
+
+   if(head==NULL || head->next==NULL)
+   return false;
+   else
+    {
+        if(p && q)
+        {
+            if(q->next!=NULL)
+                    {
+                         q=q->next;
+                    }
+                    
+            if(q->next==NULL)
+                    {
+                        return false;
+                    }
+                     
+            if(p->next!=NULL)
+                    {
+                        if(p->next->next!=NULL)
+                        {
+                            p=p->next->next;
+                        }
+                        else if(p->next->next==NULL)
+                        {
+                            return false;
+                        }
+                    }
+                    else if(p->next==NULL)
+                    return false;
+
+            while(p!=q && p!=NULL && q!=NULL)
+                {
+                    if(q->next!=NULL)
+                    {
+                         q=q->next;
+                    }
+                    
+                    if(q->next==NULL)
+                    {
+                        return false;
+                    }
+                    if(p->next!=NULL)
+                    {
+                        if(p->next->next!=NULL)
+                        {
+                            p=p->next->next;
+                        }
+                        else if(p->next->next==NULL)
+                        {
+                            return false;
+                        }
+                    }
+                    else if(p->next==NULL)
+                    return false;
+                   
+                     
+                }
+           if(p!=NULL && q!=NULL)
+           {
+               if(p==q)
+                return true;
+           }
+            
+            
+            else if(p!=q)
+                {
+                    return false;
+                }
+        }
+        
+    }
+        
+        
+        return 0;
+
+    }  
+};
