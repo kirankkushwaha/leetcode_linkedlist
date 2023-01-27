@@ -1,0 +1,33 @@
+class Solution {
+public:
+    ListNode* middleNode(ListNode* head) {
+        ListNode *p=head;
+        ListNode *q=head;
+        ListNode *t=head;
+
+        int count=0;
+        while(p!=NULL)
+        {
+            p=p->next;
+            count++;
+        }
+        cout<<"the count is "<<count<<endl;
+        if(count%2==0)
+        {
+            for(int i=1; i<=count/2; i++)
+            {
+                q=q->next;
+            }
+            return q;
+        }
+         if(count%2!=0)
+        {
+            for(int i=1; i<count/2+1; i++)
+            {
+                t=t->next;
+            }
+            return t;
+        }
+       return 0; 
+    }
+};
