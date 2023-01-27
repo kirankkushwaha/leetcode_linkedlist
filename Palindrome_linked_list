@@ -1,0 +1,73 @@
+class Solution {
+public:
+    bool isPalindrome(ListNode* head) {
+        
+        ListNode *p=head;
+        ListNode *c=head;
+        ListNode *d=head;
+        ListNode *q=NULL;
+        ListNode *r=NULL;
+        ListNode *head2=NULL;
+        ListNode *h=NULL;
+        long  count=0;
+
+        while(p!=NULL)
+        {
+            p=p->next;
+            count++;
+        }
+       //cout<<"the count is"<<count<<endl;
+
+        long  A[count+1];
+
+        for (long  i=0; i<count; i++)
+        {   if(c!=NULL)
+        {
+            A[i]=c->val;  
+            c=c->next;
+        }
+            
+        }
+       
+        while(d!=NULL)
+        {
+            r=q;
+            q=d;
+            d=d->next;
+            q->next=r;
+        }
+
+        head2=q;
+
+        h=head2;
+        long B[count+1];
+        for (int i=0; i<count; i++)
+        {   if(h!=NULL)
+        {   
+             B[i]=h->val;
+             h=h->next;
+        }
+           
+        }
+
+       /* for(long i=0; i<count; i++)
+        {
+            cout<<A[i]<<" ";
+        }
+        cout<<endl;
+        for(long i=0; i<count; i++)
+        {
+            cout<<B[i]<<" ";
+        } */
+   
+    //cout<<"the count is "<<count<<endl;
+    for(long i=0; i<count; i++)
+    {
+        
+        if(A[i]!=B[i])
+            return false;
+    
+    }      
+      return true;
+    }  
+};
